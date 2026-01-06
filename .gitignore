@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Audio files (WAV too large for git)
+*.wav
+*.WAV
+
+# Generated/temp
+peaks/
+.claude/
