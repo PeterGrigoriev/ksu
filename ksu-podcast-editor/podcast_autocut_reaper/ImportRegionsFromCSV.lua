@@ -4,12 +4,14 @@ local function trim(s)
 end
 
 local function parse_csv_line(line)
-  local a, b, rest = line:match("^%s*([^,]+)%s*,%s*([^,]+)%s*,%s*(.-)%s*$")
+  -- Parse: start,end,"label with commas"
+  local a, b, rest = line:match("^%s*([^,]+)%s*,%s*([^,]+)%s*,%s*(.+)%s*$")
   if not a or not b or not rest then return nil end
   local start_t = tonumber(trim(a))
   local end_t   = tonumber(trim(b))
   if not start_t or not end_t then return nil end
   local label = trim(rest)
+  -- Remove surrounding quotes if present
   if label:sub(1,1) == '"' and label:sub(-1,-1) == '"' then
     label = label:sub(2, -2)
   end
