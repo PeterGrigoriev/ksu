@@ -1,0 +1,5 @@
+# Home Assistant config (contains secrets, tokens, etc.)
+config/
+
+# macOS
+.DS_Store
